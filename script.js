@@ -20,25 +20,19 @@ class HashMap {
   }
 
   set(key, value) {
-    const index = this.hash(key);
-    const newBucket = new Bucket(index, key, value);
+    const index = this.hash(key) % this.capacity;
+    console.log(index);
   }
 }
 
-class Bucket {
-  constructor(hash, key, value) {
-    this.hash = hash;
-    this.key = key;
-    this.value = key;
-  }
-}
+
 
 const myHashMap = new HashMap(0.75, 16);
 
 const myHash = myHashMap.hash("carrot");
 
-// console.log(myHash % 16);
-myHashMap.arrayLength();
+console.log(myHash);
+myHashMap.set("apple", "red");
 
 
 // tengo un hash map
