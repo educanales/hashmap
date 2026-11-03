@@ -33,6 +33,12 @@ class HashMap {
       return this.array[index].value;
     }
   }
+
+  has(key) {
+    const index = this.hash(key) % this.capacity;    
+    return this.array[index][key] === key ? true : false;
+    // Tengo que crear el objeto correctamente en set(), con propiedades.
+  }
 }
 
 
@@ -43,8 +49,8 @@ const myHashMap = new HashMap(0.75, 16);
 
 // console.log(myHash);
 myHashMap.set("apple", "red");
-console.log(myHashMap.get("carrot"));
-console.log(myHashMap.get("apple"));
+console.log(myHashMap.has("carrot"));
+console.log(myHashMap.has("apple"));
 
 
 // tengo un hash map
