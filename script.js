@@ -21,8 +21,17 @@ class HashMap {
 
   set(key, value) {
     const index = this.hash(key) % this.capacity;
-    console.log(index);
-    array[index] = { key, value };
+    // console.log(index);
+    this.array[index] = { key, value };
+  }
+
+  get(key) {
+    const index = this.hash(key) % this.capacity;    
+    if (!this.array[index]) {
+      return undefined;
+    } else {
+      return this.array[index].value;
+    }
   }
 }
 
@@ -30,10 +39,12 @@ class HashMap {
 
 const myHashMap = new HashMap(0.75, 16);
 
-const myHash = myHashMap.hash("carrot");
+// const myHash = myHashMap.hash("carrot");
 
-console.log(myHash);
+// console.log(myHash);
 myHashMap.set("apple", "red");
+console.log(myHashMap.get("carrot"));
+console.log(myHashMap.get("apple"));
 
 
 // tengo un hash map
