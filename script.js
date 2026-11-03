@@ -22,6 +22,7 @@ class HashMap {
   set(key, value) {
     const index = this.hash(key) % this.capacity;
     console.log(index);
+    array[index] = { key, value };
   }
 }
 
