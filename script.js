@@ -2,6 +2,11 @@ class HashMap {
   constructor(loadFactor, capacity) {
     this.loadFactor = loadFactor;
     this.capacity = capacity;    
+    this.array = new Array( this.capacity );
+  }
+
+  arrayLength() {
+    console.log(this.array.length);
   }
 
   hash(key) {
@@ -32,7 +37,8 @@ const myHashMap = new HashMap(0.75, 16);
 
 const myHash = myHashMap.hash("carrot");
 
-console.log(myHash % 16);
+// console.log(myHash % 16);
+myHashMap.arrayLength();
 
 
 // tengo un hash map
