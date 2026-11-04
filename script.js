@@ -44,26 +44,31 @@ class HashMap {
         return true;
       }
   }
+
+  remove(key) {
+    if(!this.has(key)) {
+      return false;
+    } else {
+      const index = this.hash(key) % this.capacity;    
+      this.array.splice(index, 1, {});
+
+      return true;
+    }
+  }
 }
 
-
-
 const myHashMap = new HashMap(0.75, 16);
-
 // const myHash = myHashMap.hash("carrot");
+// myHashMap.getArray();
 
 // console.log(myHash);
 myHashMap.set("apple", "red");
-// myHashMap.getArray();
+myHashMap.getArray();
 
-console.log(myHashMap.has("apple"));
-console.log(myHashMap.has("carrot"));
+console.log(myHashMap.remove("apple"));
+myHashMap.getArray();
+// console.log(myHashMap.has("applet"));
+myHashMap.set("apple", "red");
 // console.log(myHashMap.array[10].key);
+myHashMap.getArray();
 
-
-// tengo un hash map
-// tengo mis buckets
-// cada bucket que creo tiene un indice que es el hash
-// dentro del bucket guardo la key y el value
-// para encontrar un bucket uso la key
-// 
