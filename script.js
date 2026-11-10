@@ -66,6 +66,16 @@ class HashMap {
     // return count;
     return this.array.filter(item => item.key !== null).length;
   }
+
+  clear() {
+     this.array.map(item => {
+      if (item.key !== null) {
+        delete item.key;
+        delete item.value;
+      }
+    });
+    // no esta borrando los elementos
+  }
 }
 
 const myHashMap = new HashMap(0.75, 16);
@@ -79,7 +89,8 @@ myHashMap.set("mandarina", "orange");
 // myHashMap.getArray();
 
 console.log(myHashMap.length());
-// myHashMap.length();
+myHashMap.clear();
+console.log(myHashMap.length());
 // console.log(myHashMap.has("applet"));
 // myHashMap.set("apple", "red");
 // console.log(myHashMap.array[10].key);
