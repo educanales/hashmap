@@ -68,13 +68,9 @@ class HashMap {
   }
 
   clear() {
-     this.array.map(item => {
-      if (item.key !== null) {
-        delete item.key;
-        delete item.value;
-      }
+    this.array.map(item => {
+      if (item.key !== null) this.array = new Array( this.capacity );
     });
-    // no esta borrando los elementos
   }
 }
 
