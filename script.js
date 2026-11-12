@@ -72,6 +72,12 @@ class HashMap {
       if (item.key !== null) this.array = new Array( this.capacity );
     });
   }
+
+  values() {
+    return this.array
+      .filter(item => item.key)
+      .map(item => item.key);
+  }
 }
 
 const myHashMap = new HashMap(0.75, 16);
@@ -84,9 +90,9 @@ myHashMap.set("uva", "blue");
 myHashMap.set("mandarina", "orange");
 // myHashMap.getArray();
 
-console.log(myHashMap.length());
-myHashMap.clear();
-console.log(myHashMap.length());
+// console.log(myHashMap.length());
+console.log(myHashMap.values());
+// console.log(myHashMap.length());
 // console.log(myHashMap.has("applet"));
 // myHashMap.set("apple", "red");
 // console.log(myHashMap.array[10].key);
