@@ -73,10 +73,17 @@ class HashMap {
     });
   }
 
-  values() {
+  keys() {
     return this.array
       .filter(item => item.key)
       .map(item => item.key);
+  }
+  
+
+  values() {
+    return this.array
+      .filter(item => item.value)
+      .map(item => item.value);
   }
 }
 
