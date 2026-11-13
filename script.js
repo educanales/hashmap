@@ -79,11 +79,16 @@ class HashMap {
       .map(item => item.key);
   }
   
-
   values() {
     return this.array
       .filter(item => item.value)
       .map(item => item.value);
+  }
+
+  entries() {
+    return this.array
+      .filter(item => item)
+      .map(item => [item.key, item.value]);
   }
 }
 
@@ -98,7 +103,7 @@ myHashMap.set("mandarina", "orange");
 // myHashMap.getArray();
 
 // console.log(myHashMap.length());
-console.log(myHashMap.values());
+console.log(myHashMap.entries());
 // console.log(myHashMap.length());
 // console.log(myHashMap.has("applet"));
 // myHashMap.set("apple", "red");
