@@ -23,7 +23,11 @@ class HashMap {
   set(key, value) {
     const index = this.hash(key) % this.capacity;
     // console.log(index);
-    this.array[index] = { key: key, value: value, };
+    if (index < 0 || index >= this.array.length) {
+      throw new Error("Trying to access index out of bounds");
+    } else {
+      this.array[index] = { key: key, value: value, };
+    }
   }
 
   get(key) {
