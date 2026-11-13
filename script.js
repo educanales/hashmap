@@ -28,6 +28,21 @@ class HashMap {
     } else {
       this.array[index] = { key: key, value: value, };
     }
+    // Tengo que revisar si el index ya esta ocupado
+    // si esta ocupado comprobar la key
+      // si es la misma sobreescribir key y value
+      // si no es la misma agregar otra entrada a la lista
+    // si no esta ocupado agregar normalmente 
+  }
+
+  helper(key, value) {
+    const index = this.hash(key) % this.capacity;
+    console.log(index);
+    if (this.array[index] !== undefined) {
+      return console.log("Existe");
+    } else {
+      return console.log("No existe");
+    }
   }
 
   get(key) {
@@ -104,13 +119,16 @@ const myHashMap = new HashMap(0.75, 16);
 myHashMap.set("apple", "red");
 myHashMap.set("uva", "blue");
 myHashMap.set("mandarina", "orange");
+myHashMap.set("mandarina", "naranja");
+
 // myHashMap.getArray();
 
 // console.log(myHashMap.length());
-console.log(myHashMap.entries());
+// console.log(myHashMap.entries());
 // console.log(myHashMap.length());
 // console.log(myHashMap.has("applet"));
 // myHashMap.set("apple", "red");
 // console.log(myHashMap.array[10].key);
-// myHashMap.getArray();
+myHashMap.helper("apple", "red");
+myHashMap.helper("anana", "red");
 
