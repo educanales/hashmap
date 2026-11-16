@@ -25,25 +25,31 @@ class HashMap {
     // console.log(index);
     if (index < 0 || index >= this.array.length) {
       throw new Error("Trying to access index out of bounds");
-    } else {
+    } else if (this.array[index] !== undefined) {
       this.array[index] = { key: key, value: value, };
+    } else {
+      if (this.array[index].key === key) {
+        // sobreescribir
+      } else {
+        // agregar una linked list
+      }
     }
-    // Tengo que revisar si el index ya esta ocupado
-    // si esta ocupado comprobar la key
+    //x  Tengo que revisar si el index ya esta ocupado
+    //  si esta ocupado comprobar la key
       // si es la misma sobreescribir key y value
       // si no es la misma agregar otra entrada a la lista
-    // si no esta ocupado agregar normalmente 
+    // x si no esta ocupado agregar normalmente 
   }
 
-  helper(key, value) {
-    const index = this.hash(key) % this.capacity;
-    console.log(index);
-    if (this.array[index] !== undefined) {
-      return console.log("Existe");
-    } else {
-      return console.log("No existe");
-    }
-  }
+  // helper(key, value) {
+  //   const index = this.hash(key) % this.capacity;
+  //   console.log(index);
+  //   if (this.array[index] !== undefined) {
+  //     return console.log("Existe");
+  //   } else {
+  //     return console.log("No existe");
+  //   }
+  // }
 
   get(key) {
     const index = this.hash(key) % this.capacity;    
@@ -129,6 +135,6 @@ myHashMap.set("mandarina", "naranja");
 // console.log(myHashMap.has("applet"));
 // myHashMap.set("apple", "red");
 // console.log(myHashMap.array[10].key);
-myHashMap.helper("apple", "red");
-myHashMap.helper("anana", "red");
+// myHashMap.helper("apple", "red");
+// myHashMap.helper("anana", "red");
 
