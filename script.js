@@ -29,14 +29,14 @@ class HashMap {
         if (this.array[index].key === key) {
           // sobreescribir
           this.array[index] = { key: key, value: value, };
-          console.log("tengo que sobreescribir");
+          console.log("sobreescribiendo...");
         } else {
           // agregar una linked list
           console.log("linked list");
         }
     } else {
       this.array[index] = { key: key, value: value, };
-      console.log("...");
+      console.log("Agregando un nuevo bucket");
     }
     //x  Tengo que revisar si el index ya esta ocupado
     //  si esta ocupado comprobar la key
@@ -45,17 +45,7 @@ class HashMap {
     // x si no esta ocupado agregar normalmente 
     // verificar la capacidad actual
   }
-
-  // helper(key, value) {
-  //   const index = this.hash(key) % this.capacity;
-  //   console.log(index);
-  //   if (this.array[index] !== undefined) {
-  //     return console.log("Existe");
-  //   } else {
-  //     return console.log("No existe");
-  //   }
-  // }
-
+  
   get(key) {
     const index = this.hash(key) % this.capacity;    
     if (!this.array[index]) {
@@ -81,6 +71,7 @@ class HashMap {
     } else {
       const index = this.hash(key) % this.capacity;    
       this.array.splice(index, 1, {});
+      console.log("Removing the entry.");
       return true;
     }
   }
@@ -94,28 +85,33 @@ class HashMap {
     // });
     // // console.log(count);
     // return count;
+    console.log("Length: ");
     return this.array.filter(item => item.key !== null).length;
   }
 
   clear() {
+    console.log("Removing all entries in the hash map.");
     this.array.map(item => {
       if (item.key !== null) this.array = new Array( this.capacity );
     });
   }
 
   keys() {
+    console.log("These are all the keys in the hashmap.");
     return this.array
       .filter(item => item.key)
       .map(item => item.key);
   }
   
   values() {
+    console.log("These are all the values in the hashmap.");
     return this.array
       .filter(item => item.value)
       .map(item => item.value);
   }
 
   entries() {
+    console.log("These are all the entries in the hashmap.");
     return this.array
       .filter(item => item)
       .map(item => [item.key, item.value]);
@@ -143,3 +139,12 @@ myHashMap.getArray();
 // myHashMap.helper("apple", "red");
 // myHashMap.helper("anana", "red");
 
+// helper(key, value) {
+//   const index = this.hash(key) % this.capacity;
+//   console.log(index);
+//   if (this.array[index] !== undefined) {
+//     return console.log("Existe");
+//   } else {
+//     return console.log("No existe");
+//   }
+// }
