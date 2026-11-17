@@ -49,8 +49,10 @@ class HashMap {
   get(key) {
     const index = this.hash(key) % this.capacity;    
     if (!this.array[index]) {
+      console.log("No existe.");
       return undefined;
     } else {
+      console.log(`si existe ${key}`);
       return this.array[index].value;
     }
   }
@@ -128,7 +130,14 @@ myHashMap.set("uva", "blue");
 myHashMap.set("mandarina", "orange");
 myHashMap.set("mandarina", "naranja");
 
-myHashMap.getArray();
+// myHashMap.getArray();
+myHashMap.get("apple");
+myHashMap.has("banana");
+myHashMap.remove("uva");
+myHashMap.length();
+myHashMap.keys();
+myHashMap.values();
+myHashMap.entries();
 
 // console.log(myHashMap.length());
 // console.log(myHashMap.entries());
