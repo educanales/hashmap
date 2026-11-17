@@ -26,19 +26,24 @@ class HashMap {
     if (index < 0 || index >= this.array.length) {
       throw new Error("Trying to access index out of bounds");
     } else if (this.array[index] !== undefined) {
-      this.array[index] = { key: key, value: value, };
+        if (this.array[index].key === key) {
+          // sobreescribir
+          this.array[index] = { key: key, value: value, };
+          console.log("tengo que sobreescribir");
+        } else {
+          // agregar una linked list
+          console.log("linked list");
+        }
     } else {
-      if (this.array[index].key === key) {
-        // sobreescribir
-      } else {
-        // agregar una linked list
-      }
+      this.array[index] = { key: key, value: value, };
+      console.log("...");
     }
     //x  Tengo que revisar si el index ya esta ocupado
     //  si esta ocupado comprobar la key
       // si es la misma sobreescribir key y value
       // si no es la misma agregar otra entrada a la lista
     // x si no esta ocupado agregar normalmente 
+    // verificar la capacidad actual
   }
 
   // helper(key, value) {
@@ -127,7 +132,7 @@ myHashMap.set("uva", "blue");
 myHashMap.set("mandarina", "orange");
 myHashMap.set("mandarina", "naranja");
 
-// myHashMap.getArray();
+myHashMap.getArray();
 
 // console.log(myHashMap.length());
 // console.log(myHashMap.entries());
