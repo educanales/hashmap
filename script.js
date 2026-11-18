@@ -32,7 +32,11 @@ class HashMap {
           console.log("sobreescribiendo...");
         } else {
           // agregar una linked list
-          console.log("linked list");
+          // marcar el primer nodo como header
+          
+          this.array[index].headNode = this.array[index];
+          this.array[index].nextNode = { key: key, value: value };
+          console.log("Creando una linked list");
         }
     } else {
       this.array[index] = { key: key, value: value, };
@@ -49,10 +53,10 @@ class HashMap {
   get(key) {
     const index = this.hash(key) % this.capacity;    
     if (!this.array[index]) {
-      console.log("No existe.");
+      console.log("No existe la key que buscas.");
       return undefined;
     } else {
-      console.log(`si existe ${key}`);
+      console.log(`la key es: ${key}`);
       return this.array[index].value;
     }
   }
@@ -73,7 +77,7 @@ class HashMap {
     } else {
       const index = this.hash(key) % this.capacity;    
       this.array.splice(index, 1, {});
-      console.log("Removing the entry.");
+      console.log(`Removing the entry: ${key}`);
       return true;
     }
   }
@@ -120,24 +124,41 @@ class HashMap {
   }
 }
 
-const myHashMap = new HashMap(0.75, 16);
+// const myHashMap = new HashMap(0.75, 16);
 // const myHash = myHashMap.hash("carrot");
 // myHashMap.getArray();
 
 // console.log(myHash);
-myHashMap.set("apple", "red");
-myHashMap.set("uva", "blue");
-myHashMap.set("mandarina", "orange");
-myHashMap.set("mandarina", "naranja");
+// myHashMap.set("apple", "red");
+// myHashMap.set("uva", "blue");
+// myHashMap.set("mandarina", "orange");
+// myHashMap.set("mandarina", "naranja");
 
 // myHashMap.getArray();
-myHashMap.get("apple");
-myHashMap.has("banana");
-myHashMap.remove("uva");
-myHashMap.length();
-myHashMap.keys();
-myHashMap.values();
-myHashMap.entries();
+// myHashMap.get("apple");
+// myHashMap.has("banana");
+// myHashMap.remove("uva");
+// myHashMap.length();
+// myHashMap.keys();
+// myHashMap.values();
+// myHashMap.entries();
+
+const test = new HashMap(0.75, 16);
+
+test.set('apple', 'red')
+test.set('banana', 'yellow')
+test.set('carrot', 'orange')
+test.set('dog', 'brown')
+test.set('elephant', 'gray')
+test.set('frog', 'green')
+test.set('grape', 'purple')
+test.set('hat', 'black')
+test.set('ice cream', 'white')
+test.set('jacket', 'blue')
+test.set('kite', 'pink')
+test.set('lion', 'golden')
+
+test.getArray();
 
 // console.log(myHashMap.length());
 // console.log(myHashMap.entries());
