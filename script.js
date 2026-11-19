@@ -33,14 +33,21 @@ class HashMap {
         } else {
           // agregar una linked list
           // marcar el primer nodo como header
-          
-          this.array[index].headNode = this.array[index];
-          this.array[index].nextNode = { key: key, value: value };
+          const prevPair = this.array[index];
+          console.log(this.array[index]);
+          console.log(prevPair);
+          this.remove(prevPair.key);
+          console.log(this.array[index].key);
+          this.array[index] = { headNode: { prevPair } };
+
+          console.log(this.array[index].key);
+          // this.array[index].headNode = this.array[index];
+          // this.array[index].nextNode = { key: key, value: value, };
           console.log("Creando una linked list");
         }
     } else {
       this.array[index] = { key: key, value: value, };
-      console.log("Agregando un nuevo bucket");
+      console.log(`Agregando un nuevo bucket ${key}`);
     }
     //x  Tengo que revisar si el index ya esta ocupado
     //  si esta ocupado comprobar la key
@@ -153,10 +160,10 @@ test.set('elephant', 'gray')
 test.set('frog', 'green')
 test.set('grape', 'purple')
 test.set('hat', 'black')
-test.set('ice cream', 'white')
-test.set('jacket', 'blue')
-test.set('kite', 'pink')
-test.set('lion', 'golden')
+// test.set('ice cream', 'white')
+// test.set('jacket', 'blue')
+// test.set('kite', 'pink')
+// test.set('lion', 'golden')
 
 test.getArray();
 
