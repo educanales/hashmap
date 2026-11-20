@@ -1,4 +1,4 @@
-class HashMap {
+export class HashMap {
   constructor(loadFactor, capacity) {
     this.loadFactor = loadFactor;
     this.capacity = capacity;    
@@ -34,14 +34,14 @@ class HashMap {
           // agregar una linked list
           // marcar el primer nodo como header
           const prevPair = this.array[index];
-          console.log(this.array[index]);
-          console.log(prevPair);
+          // console.log(this.array[index]);
+          // console.log(prevPair);
           this.remove(prevPair.key);
-          console.log(this.array[index]);
+          // console.log(this.array[index]);
           prevPair.nextNode = { key: key, value: value };
           this.array[index] = { headNode: prevPair };
 
-          console.log(this.array[index]);
+          // console.log(this.array[index]);
           // this.array[index].headNode = this.array[index];
           // this.array[index].nextNode = { key: key, value: value, };
           console.log("Creando una linked list");
