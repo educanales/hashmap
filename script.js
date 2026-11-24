@@ -50,13 +50,7 @@ export class HashMap {
       this.array[index] = { key: key, value: value, };
       console.log(`Agregando un nuevo bucket ${key}`);
     }
-    //x  Tengo que revisar si el index ya esta ocupado
-    //  si esta ocupado comprobar la key
-      // si es la misma sobreescribir key y value
-      // si no es la misma agregar otra entrada a la lista
-    // x si no esta ocupado agregar normalmente 
-    // verificar la capacidad actual
-  }
+ }
   
   get(key) {
     const index = this.hash(key) % this.capacity;    
