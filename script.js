@@ -31,12 +31,21 @@ export class HashMap {
           this.array[index] = { key: key, value: value, };
           console.log("sobreescribiendo...");
         } else {
-          // agregar una linked list
-          // marcar el primer nodo como header
-          const prevPair = this.array[index];
-          this.remove(prevPair.key);
-          prevPair.nextNode = { key: key, value: value };
-          this.array[index] = { headNode: prevPair };
+          // linked list
+          if (this.array[index].headNode === undefined) {
+            console.log("No hay head node");
+            const currentNode = this.array[index];
+            currentNode.nextNode = { key: key, value: value, nextNode: null }; 
+            this.remove(currentNode.key);
+            this.array[index] = { headNode: currentNode };
+          } else {
+            console.log("Hay headnode");
+            const currentNode = this.array[index].headNode;
+            while(currentNode.nextNode !== null) {
+              currentNode = currentNode.nextNode;
+            }
+            currentNode.nextNode = { key: key, value: value, nextNode: null };  
+          }
           console.log("Creando una linked list");
         }
     } else {
